@@ -93,5 +93,6 @@ while (count <= maxIterations) && (abs(z) <= 2)
     z = z*z + z0;
 end
 count = log(count);
+end
 
 
