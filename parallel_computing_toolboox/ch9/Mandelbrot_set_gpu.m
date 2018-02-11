@@ -23,12 +23,12 @@ count = log( count );
 
 % Show
 cpuTime = toc( t );
-fig = gcf;
-fig.Position = [200 200 600 600];
-imagesc( x, y, count );
-colormap( [jet();flipud( jet() );0 0 0] );
-axis off
-title( sprintf( '%1.2fsecs (without GPU)', cpuTime ) );
+%fig = gcf;
+%fig.Position = [200 200 600 600];
+%imagesc( x, y, count );
+%colormap( [jet();flipud( jet() );0 0 0] );
+%axis off
+%title( sprintf( '%1.2fsecs (without GPU)', cpuTime ) );
 
 fprintf( '%1.2fsecs (without GPU)\n', cpuTime )
 
@@ -53,10 +53,10 @@ count = log( count );
 % Show
 count = gather( count ); % Fetch the data back from the GPU
 naiveGPUTime = toc( t );
-imagesc( x, y, count )
-axis off
-title( sprintf( '%1.3fsecs (naive GPU) = %1.1fx faster', ...
-    naiveGPUTime, cpuTime/naiveGPUTime ) )
+%imagesc( x, y, count )
+%axis off
+%title( sprintf( '%1.3fsecs (naive GPU) = %1.1fx faster', ...
+%    naiveGPUTime, cpuTime/naiveGPUTime ) )
 
 fprintf( '%1.3fsecs (naive GPU) = %1.1fx faster\n', ...
     naiveGPUTime, cpuTime/naiveGPUTime )
@@ -75,10 +75,10 @@ count = arrayfun( @pctdemo_processMandelbrotElement, ...
 % Show
 count = gather( count ); % Fetch the data back from the GPU
 gpuArrayfunTime = toc( t );
-imagesc( x, y, count )
-axis off
-title( sprintf( '%1.3fsecs (GPU arrayfun) = %1.1fx faster', ...
-    gpuArrayfunTime, cpuTime/gpuArrayfunTime ) );
+%imagesc( x, y, count )
+%axis off
+%title( sprintf( '%1.3fsecs (GPU arrayfun) = %1.1fx faster', ...
+%    gpuArrayfunTime, cpuTime/gpuArrayfunTime ) );
 
 fprintf( '%1.3fsecs (GPU arrayfun) = %1.1fx faster\n', ...
     gpuArrayfunTime, cpuTime/gpuArrayfunTime )
@@ -108,10 +108,10 @@ count = feval( kernel, count, xGrid, yGrid, maxIterations, numElements );
 % Show
 count = gather( count ); % Fetch the data back from the GPU
 gpuCUDAKernelTime = toc( t );
-imagesc( x, y, count )
-axis off
-title( sprintf( '%1.3fsecs (GPU CUDAKernel) = %1.1fx faster', ...
-    gpuCUDAKernelTime, cpuTime/gpuCUDAKernelTime ) );
+%imagesc( x, y, count )
+%axis off
+%title( sprintf( '%1.3fsecs (GPU CUDAKernel) = %1.1fx faster', ...
+%    gpuCUDAKernelTime, cpuTime/gpuCUDAKernelTime ) );
 
 fprintf( '%1.3fsecs (GPU CUDAKernel) = %1.1fx faster\n', ...
     gpuCUDAKernelTime, cpuTime/gpuCUDAKernelTime )
