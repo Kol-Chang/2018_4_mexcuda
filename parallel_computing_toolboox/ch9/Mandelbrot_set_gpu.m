@@ -125,4 +125,7 @@ axis off
 title( sprintf( '%1.3fsecs (GPU CUDAKernel) = %1.1fx faster', ...
     gpuCUDAKernelTime, cpuTime/gpuCUDAKernelTime ) );
 
+fprintf( '%1.3fsecs (GPU CUDAKernel) = %1.1fx faster\n', ...
+    gpuCUDAKernelTime, cpuTime/gpuCUDAKernelTime )
+
 
