@@ -1,4 +1,4 @@
-function count = (x0,y0,maxIterations)
+function count = pctdemo_processMandelbrotElement(x0,y0,maxIterations)
 z0 = complex(x0,y0);
 z = z0;
 count = 1;
