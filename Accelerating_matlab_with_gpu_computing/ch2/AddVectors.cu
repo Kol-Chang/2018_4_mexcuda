@@ -1,5 +1,5 @@
 #include "AddVectors.h"
-#include "mex.h"
+//#include "mex.h"
 
 __global__  void addVectorsMask(float* A, float*B, float*C, int size)
 {
