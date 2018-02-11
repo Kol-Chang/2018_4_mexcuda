@@ -3,6 +3,7 @@ gridSize = 1000;
 xlim = [-0.748766713922161, -0.748766707771757];
 ylim = [ 0.123640844894862,  0.123640851045266];
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Setup
 t = tic();
 x = linspace( xlim(1), xlim(2), gridSize );
@@ -29,6 +30,9 @@ colormap( [jet();flipud( jet() );0 0 0] );
 axis off
 title( sprintf( '%1.2fsecs (without GPU)', cpuTime ) );
 
+fprintf( '%1.2fsecs (without GPU)', cpuTime )
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Setup
 t = tic();
 x = gpuArray.linspace( xlim(1), xlim(2), gridSize );
@@ -53,3 +57,6 @@ imagesc( x, y, count )
 axis off
 title( sprintf( '%1.3fsecs (naive GPU) = %1.1fx faster', ...
     naiveGPUTime, cpuTime/naiveGPUTime ) )
+
+fprintf( '%1.3fsecs (naive GPU) = %1.1fx faster', ...
+    naiveGPUTime, cpuTime/naiveGPUTime )
