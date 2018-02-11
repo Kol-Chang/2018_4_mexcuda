@@ -30,7 +30,7 @@ colormap( [jet();flipud( jet() );0 0 0] );
 axis off
 title( sprintf( '%1.2fsecs (without GPU)', cpuTime ) );
 
-fprintf( '%1.2fsecs (without GPU)', cpuTime )
+fprintf( '%1.2fsecs (without GPU)\n', cpuTime )
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Setup
@@ -58,5 +58,9 @@ axis off
 title( sprintf( '%1.3fsecs (naive GPU) = %1.1fx faster', ...
     naiveGPUTime, cpuTime/naiveGPUTime ) )
 
-fprintf( '%1.3fsecs (naive GPU) = %1.1fx faster', ...
+fprintf( '%1.3fsecs (naive GPU) = %1.1fx faster\n', ...
     naiveGPUTime, cpuTime/naiveGPUTime )
+
+
+
+
