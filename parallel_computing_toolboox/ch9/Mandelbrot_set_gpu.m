@@ -80,4 +80,7 @@ axis off
 title( sprintf( '%1.3fsecs (GPU arrayfun) = %1.1fx faster', ...
     gpuArrayfunTime, cpuTime/gpuArrayfunTime ) );
 
+fprintf( '%1.3fsecs (GPU arrayfun) = %1.1fx faster\n', ...
+    gpuArrayfunTime, cpuTime/gpuArrayfunTime )
+
 
