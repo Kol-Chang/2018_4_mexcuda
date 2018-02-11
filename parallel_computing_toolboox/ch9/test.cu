@@ -1,4 +1,5 @@
-__global__ void add1( double * pi, double c )
+__global__ void add2( double * v1, const double * v2 )
 {
-	*pi += c;
+	int idx = threadIdx.x;
+	v1[idx] += v2[idx];
 }
