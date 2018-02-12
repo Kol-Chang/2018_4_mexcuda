@@ -2,8 +2,8 @@
 
 hornerFcn = @horner;
 
-data1  = rand( 4000, 'single' );
-data2  = rand( 2000, 'double' );
+data1  = rand( 16000, 'single' );
+data2  = rand( 8000, 'double' );
 gdata1 = gpuArray( data1 );
 gdata2 = gpuArray( data2 );
 
