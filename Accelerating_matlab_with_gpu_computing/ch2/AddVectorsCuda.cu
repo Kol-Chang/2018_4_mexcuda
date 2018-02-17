@@ -11,7 +11,7 @@ __global__  void addVectorsMask(float* A, float*B, float*C, int size)
 }
 
 
-void mexFunction(int nlhs, mxArray* plhs[], int nrhs, mxArray* prhs[])
+void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
 {	
 
 	if(nrhs != 2)
