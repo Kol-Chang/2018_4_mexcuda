@@ -1,8 +1,10 @@
 #include "mex.h"
 #include "AddVectors.h"
+#include "gpu/mxGPUArray.h"
 
 void mexFunction(int nlhs, mxArray* plhs[], int nrhs, mxArray* prhs[])
-{
+{	
+	int mxInitGPU()
 	if(nrhs != 2)
 		mexErrMsgTxt("Invalid number of input arguments");
 
