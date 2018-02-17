@@ -1,6 +1,4 @@
 #include "AddVectors.h"
-#include "cuda_runtime.h"
-#include "gpu/mxGPUArray.h"
 //#include "mex.h"
 
 __global__  void addVectorsMask(float* A, float*B, float*C, int size)
