@@ -62,5 +62,23 @@ void mexFunction(int nlhs, mxArray* plhs[], int nrhs, mxArray* prhs[])
 	plhs[0] = mxCreateNumericMatrix(numRowsA, numColsB, mxSINGLE_CLASS, mxREAL);
 	float *C = (float*)mxGetData(plhs[0]);
 
-	addVectors(A, B, C, maxSize);
+	//addVectors(A, B, C, maxSize);
+
+	float *devPtrA = 0, *devPtrB = 0, *devPtrC = 0;
+	int size = maxSize;
+
+	cudaMalloc(&devPtrA, sizeof(float)*size);
+	cudaMalloc(&devPtrB, sizeof(float)*size);
+	cudaMalloc(&devPtrC, sizeof(float)*size);
+
+	cudaMemcpy(devPtrA, A, sizeof(float)*size, cudaMemcpyHostToDevice);
+	cudaMemcpy(devPtrB, B, sizeof(float)*size, cudaMemcpyHostToDevice);
+
+	addVectorsMask<<<size, 1>>>(devPtrA, devPtrB, devPtrC, size);
+
+	cudaMemcpy(C, devPtrC, sizeof(float)*size, cudaMemcpyDeviceToHost);
+
+	cudaFree(devPtrA);
+	cudaFree(devPtrB);
+	cudaFree(devPtrC);
 }
