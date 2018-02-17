@@ -1,5 +1,6 @@
 #include "mex.h"
 #include "AddVectors.h"
+#include "cuda_runtime.h"
 
 void mexFunction(int nlhs, mxArray* plhs[], int nrhs, mxArray* prhs[])
 {	
